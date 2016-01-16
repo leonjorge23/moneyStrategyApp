@@ -1,0 +1,47 @@
+<div class="card meetings cf">
+
+	<div class="textintro">
+		<h1>Add Expense</h1>
+		<p>fill up form and hit +</p>
+		<p></p>
+	</div>
+	<form class="formgroup addmeeting cf" name="myform" ng-submit="addExpense()" novalidate>
+		<div class="inputwrapper">
+			<input type="number" name="amount" placeholder="Enter Amount" ng-model="amount" ng-required="true"/>
+			<input type="text" name="description" placeholder="Description" ng-model="description" ng-required="true"/>
+			<input type="date" name="date" placeholder="" ng-model="date" ng-required="true"/>
+			<input type="text" name="category" placeholder="category" ng-model="category" ng-required="true"/>
+			<input type="text" name="tags" placeholder="e.g. jorge, fast-food" ng-model="tags" ng-required="true"/>
+		</div>
+		<button class="btn" type="submit" ng-disabled="myform.$invalid">+</button>
+	</form>
+
+
+
+</div><!-- meetings cf -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Your Expenses:</h2>
+			<table class="table table-striped">
+				<thead>
+					<th>Amount</th>
+					<th>Description</th>
+					<th>Date</th>
+					<th>Category</th>
+					<th>Tags</th>
+				</thead>
+				<tbody>
+				 <tr ng-repeat="(key, expense) in expenses">
+					 <td>{{expense.amount | currency:"USD$"}}</td>
+					 <td>{{expense.description}}</td>
+					 <td>{{expense.date | date:'yyyy-MM-dd'}}</td>
+					 <td>{{expense.category}}</td>
+					 <td>{{expense.tags}}</td>
+				 </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
